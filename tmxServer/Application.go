@@ -9,7 +9,6 @@ type BaseFrame interface {
 }
 
 // DefaultConfig
-// tmx-project-frame-tmxCore
 // @Description: 基础加载配置文件接口
 type DefaultConfig interface {
 	GetConfigKey() string
