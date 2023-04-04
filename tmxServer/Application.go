@@ -37,6 +37,7 @@ func ApplicationStart(frameList []BaseFrame, defaultConfig []DefaultConfig) *Con
 	for _, frame := range frameList {
 		obj := frame
 
+		//加载container元素
 		frameContainer.Set(obj.Key(), obj.Handle())
 	}
 
