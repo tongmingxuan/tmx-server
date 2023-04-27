@@ -120,3 +120,22 @@ func BuildWhere(db *gorm.DB, where interface{}) (*gorm.DB, error) {
 	}
 	return db, nil
 }
+
+type DaoPlugin struct {
+}
+
+func (p DaoPlugin) BuildWhere(db *gorm.DB, where interface{}) (*gorm.DB, error) {
+	return BuildWhere(db, where)
+}
+
+func (p DaoPlugin) BuildGetListByWhere(db *gorm.DB, where interface{}) (*gorm.DB, error) {
+	return BuildGetListByWhere(db, where)
+}
+
+func (p DaoPlugin) BuildUpdateByWhere(db *gorm.DB, where interface{}) (*gorm.DB, error) {
+	return BuildUpdateByWhere(db, where)
+}
+
+func (p DaoPlugin) BuildFindByWhere(db *gorm.DB, where interface{}) (*gorm.DB, error) {
+	return BuildFindByWhere(db, where)
+}
