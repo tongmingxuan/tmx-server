@@ -121,6 +121,8 @@ func BuildWhere(db *gorm.DB, where interface{}) (*gorm.DB, error) {
 	return db, nil
 }
 
+// DaoPlugin
+// @Description: 基础dao方法
 type DaoPlugin struct {
 }
 
