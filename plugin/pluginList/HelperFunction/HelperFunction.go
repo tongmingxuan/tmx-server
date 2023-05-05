@@ -49,13 +49,13 @@ func JsonSuccess(message string, data map[string]interface{}) string {
 	return string(result)
 }
 
-func JsonError(message string, data map[string]interface{}) string {
+func JsonError(message string, data map[string]interface{}, code int) string {
 	if data == nil {
 		data = map[string]interface{}{}
 	}
 
 	mapRes := map[string]interface{}{
-		"code":    500,
+		"code":    code,
 		"message": message,
 		"data":    data,
 	}
@@ -87,7 +87,7 @@ func GetQueryParams(c *gin.Context) map[string]interface{} {
 func GetPostFormParams(c *gin.Context) map[string]interface{} {
 	if err := c.Request.ParseMultipartForm(32 << 20); err != nil {
 		if !errors.Is(err, http.ErrNotMultipart) {
-			panic("GetPostFormParams:ErrNotMultipart:" + err.Error())
+			//panic("GetPostFormParams:ErrNotMultipart:" + err.Error())
 		}
 	}
 	var postMap = make(map[string]interface{}, len(c.Request.PostForm))
@@ -125,4 +125,18 @@ func GetSnowflakeIdByInt64() string {
 	}
 
 	return node.Generate().String()
+}
+
+func GetGinHttpParams(c *gin.Context) map[string]interface{} {
+	params := make(map[string]interface{})
+
+	for field, value := range GetQueryParams(c) {
+		params[field] = value
+	}
+
+	for field, value := range GetPostFormParams(c) {
+		params[field] = value
+	}
+
+	return params
 }
