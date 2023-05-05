@@ -127,6 +127,7 @@ func GetSnowflakeIdByInt64() string {
 	return node.Generate().String()
 }
 
+// GetGinHttpParams 获取gin参数
 func GetGinHttpParams(c *gin.Context) map[string]interface{} {
 	params := make(map[string]interface{})
 
