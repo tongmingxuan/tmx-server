@@ -30,7 +30,7 @@ func (l *Logger) Handle() *BaseFrame {
 	// 创建写入器
 	writer := zapcore.AddSync(&lumberjack.Logger{
 		//日志地址
-		Filename: "runtime/logs/service.log",
+		Filename: "runtime/logs/" + time.Now().Format("2006_01_02") + ".log",
 		//日志大小
 		MaxSize: 100,
 		//保留日志个数
