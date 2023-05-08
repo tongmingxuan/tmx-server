@@ -42,10 +42,15 @@ func (command *Command) Key() string {
 
 func (command *Command) Handle() *BaseFrame {
 	cliApp := cli.NewApp()
+
 	cliApp.Name = "tmx-server"
+
 	cliApp.Usage = "tmx-server"
+
 	cliApp.Email = "1422906354@qq.com"
+	
 	cliApp.Version = "2.0.0"
+
 	cliApp.Usage = "自定义command"
 
 	cliApp.Commands = command.CommandList
