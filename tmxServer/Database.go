@@ -72,7 +72,7 @@ func (databasePool *DatabasePool) CreateConnection(connectionName string, connec
 	sqlDB.SetMaxOpenConns(maxConnection)
 
 	// SetConnMaxLifetime 设置了连接可复用的最大时间。
-	sqlDB.SetConnMaxLifetime(15 * time.Minute)
+	sqlDB.SetConnMaxLifetime(60 * time.Second)
 
 	databasePool.Pool.Store(connectionName, db)
 }
