@@ -36,6 +36,8 @@ func Connection(connection string) *gorm.DB {
 	return conn.(*gorm.DB)
 }
 
+// BaseModel
+// @Description: 基础模型
 type BaseModel struct {
 	CreatedAt MyTime  `json:"created_at"`
 	UpdatedAt MyTime  `json:"updated_at"`
