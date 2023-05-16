@@ -37,9 +37,9 @@ func Connection(connection string) *gorm.DB {
 }
 
 type BaseModel struct {
-	CreatedAt MyTime `json:"created_at"`
-	UpdatedAt MyTime `json:"updated_at"`
-	DeletedAt MyTime `json:"deleted_at"`
+	CreatedAt MyTime  `json:"created_at"`
+	UpdatedAt MyTime  `json:"updated_at"`
+	DeletedAt *MyTime `json:"deleted_at"`
 }
 
 // Model

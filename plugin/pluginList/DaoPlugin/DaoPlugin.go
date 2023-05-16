@@ -38,8 +38,6 @@ func BuildGetListByWhere(db *gorm.DB, where interface{}) (*gorm.DB, error) {
 func BuildWhere(db *gorm.DB, where interface{}) (*gorm.DB, error) {
 	var err error
 
-	db.Where(DeletedNullMap)
-
 	t := reflect.TypeOf(where).Kind()
 	if t == reflect.Struct || t == reflect.Map {
 		db = db.Where(where)
